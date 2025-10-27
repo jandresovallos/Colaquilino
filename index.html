@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Colegio José Aquilino Durán — Información Institucional</title>
+  <meta name="description" content="Himno, Misión, Visión, Bandera, Reseña histórica y Filosofía de la Institución Educativa José Aquilino Durán." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --beige:#f3e5cf;       /* Bandera: BEIGE */
+      --maroon:#6b2c2c;      /* Bandera: MARRÓN */
+      --accent-gold:#c8a75a; /* alusivo a laurel/libro */
+      --accent-green:#2e7d32;/* laurel */
+      --ink:#1f2937;         /* texto */
+      --muted:#6b7280;       /* secundario */
+      --bg:#fffaf5;          /* fondo cálido */
+      --card:#ffffff;        /* tarjetas */
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+
+    body{
+      font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Header */
+    header{
+      position:relative;
+      padding:56px 20px 24px;
+      background: linear-gradient(135deg, var(--maroon), #8a3a3a 60%, var(--accent-gold));
+      color:#fff;
+      overflow:hidden;
+    }
+    header .wave{
+      position:absolute; inset:auto -20% -1px -20%; height:120px;
+      background:linear-gradient(to right, #ffffff20, #ffffff05);
+      filter:blur(10px);
+      transform:skewY(-4deg);
+      animation:float 8s ease-in-out infinite;
+    }
+    header .wave:nth-child(1){bottom:40px;animation-delay:0s}
+    header .wave:nth-child(2){bottom:10px;animation-delay:1.5s}
+    @keyframes float{0%,100%{transform:skewY(-4deg) translateY(0)}50%{transform:skewY(-4deg) translateY(-10px)}}
+
+    .brand{display:flex; align-items:center; gap:12px;}
+    .escudo{width:64px; height:64px; object-fit:contain; background:#fff; border-radius:12px; padding:6px; box-shadow:0 6px 16px #0004; border:2px solid #ffffff60}
+    h1{font-size:1.35rem; margin:0; letter-spacing:.2px}
+    .tag{font-size:.85rem; opacity:.9}
+    h1{font-size:1.35rem; margin:0; letter-spacing:.2px}
+    .tag{font-size:.85rem; opacity:.9}
+
+    /* Nav (mobile-first) */
+    nav{
+      position:sticky; top:0; z-index:30;
+      background:#fff; border-bottom:1px solid #00000010;
+      backdrop-filter:saturate(180%) blur(8px);
+    }
+    .nav-wrap{display:flex; gap:8px; overflow:auto; padding:8px 12px}
+    .nav-wrap a{flex:0 0 auto; text-decoration:none; color:var(--maroon); font-weight:600; padding:10px 12px; border-radius:999px; background:#6b2c2c12}
+    .nav-wrap a.active{background:var(--maroon); color:#fff}
+
+    /* Layout */
+    .container{padding:20px; max-width:980px; margin:auto}
+    section{scroll-margin-top:72px}
+    .card{
+      background:var(--card); border:1px solid #00000008; border-radius:18px; padding:16px 16px; box-shadow:var(--shadow);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .card:hover{transform:translateY(-2px); box-shadow:0 16px 36px rgba(0,0,0,.12)}
+    .kicker{color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.12em; font-size:.75rem}
+    .title{margin:.25rem 0 0; font-size:1.25rem}
+
+    /* Bandera (visual) */
+    .flag{height:120px; border-radius:12px; overflow:hidden; border:1px solid #00000010}
+    .flag .stripe{height:50%;}
+    .flag .stripe.top{background:var(--beige)}
+    .flag .stripe.bottom{background:var(--maroon)}
+
+    /* Hymn accordion */
+    details{border:1px solid #00000012; border-radius:12px; padding:.85rem; background:#fff}
+    details+details{margin-top:.5rem}
+    summary{cursor:pointer; font-weight:700; color:var(--maroon)}
+    details[open]{outline:2px solid #6b2c2c25}
+
+    /* Reseña timeline */
+    .timeline{position:relative; margin:8px 0 0 8px; padding-left:16px}
+    .timeline::before{content:""; position:absolute; left:5px; top:0; bottom:0; width:2px; background:linear-gradient(var(--maroon), transparent)}
+    .titem{position:relative; margin:10px 0; padding-left:10px}
+    .titem::before{content:""; position:absolute; left:-6px; top:.45rem; width:10px; height:10px; border-radius:50%; background:var(--accent-gold); box-shadow:0 0 0 3px #ffffff}
+
+    /* Footer */
+    footer{padding:36px 20px; text-align:center; color:#ffffff; background:linear-gradient(180deg, #5a2424, #341515)}
+    footer small{opacity:.9}
+
+    /* Imagen de escudo responsiva en header */
+    @media (min-width:720px){
+      .escudo{width:72px; height:72px}
+    }
+
+    /* Reveal animations */
+    .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1; transform:none}
+
+    /* Bigger screens tweaks */
+    @media (min-width:720px){
+      header{padding:72px 32px 28px}
+      h1{font-size:1.6rem}
+      .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+      .span-6{grid-column:span 6}
+      .span-4{grid-column:span 4}
+      .span-8{grid-column:span 8}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img class="escudo" src="./escudoColAquilino.png" alt="Escudo institucional" loading="eager" decoding="async"/>
+      <div>
+        <h1>Institución Educativa José Aquilino Durán</h1>
+        <div class="tag">Información institucional</div>
+      </div>
+    </div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </header>
+
+  <nav aria-label="Secciones">
+    <div class="nav-wrap" id="nav">
+      <a href="#resena" class="active">Reseña</a>
+      <a href="#mision-vision">Misión & Visión</a>
+      <a href="#bandera">Bandera</a>
+      <a href="#escudo">Escudo</a>
+      <a href="#himno">Himno</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Reseña -->
+    <section id="resena" class="reveal">
+      <div class="card">
+        <div class="kicker">Horizonte institucional</div>
+        <h2 class="title">Reseña histórica</h2>
+        <p>La Institución Educativa José Aquilino Durán fue creada por acuerdo municipal Nº 034 del <strong>29 de diciembre de 1992</strong>, para atender las necesidades de cobertura estudiantil del sector, por iniciativa de docentes como Dora Armida Del Real de Rozo y Miguel Ángel Ortiz. Obtuvo reconocimiento oficial para grados 6º a 11º mediante resolución Nº 049 del <strong>25 de noviembre de 1999</strong> y, por decreto 00803 del <strong>30 de septiembre de 2002</strong>, se fusionó con las escuelas Nuestra Señora de las Angustias, San Juan Bosco Nº 12 y Nº 15, Atanasio Girardot Nº 28 y el Colegio Pedro Fortoul.</p>
+        <div class="timeline">
+          <div class="titem"><strong>1992</strong> · Creación por Acuerdo Municipal 034.</div>
+          <div class="titem"><strong>1993–1995</strong> · Apertura y ampliación gradual de grados 6º a 9º; nombramientos docentes y directivos.</div>
+          <div class="titem"><strong>1999</strong> · Reconocimiento oficial 6º a 11º (Res. 049).</div>
+          <div class="titem"><strong>2002</strong> · Fusión de sedes (Decreto 00803).</div>
+          <div class="titem"><strong>2016</strong> · Inicio de Educación Técnica con el SENA (Gestión Ambiental).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misión / Visión -->
+    <section id="mision-vision" class="reveal" style="margin-top:16px">
+      <div class="grid">
+        <article class="card span-6">
+          <div class="kicker">Horizonte</div>
+          <h2 class="title">Misión</h2>
+          <p>Formación integral de calidad, desde preescolar hasta undécimo, centrada en el desarrollo de competencias básicas, laborales, ciudadanas y afectivas; basada en los cuatro saberes: <em>aprender a ser, a conocer, a hacer y a convivir</em>. Promueve la inclusión, la dignidad y la construcción de proyectos de vida en coherencia con la legislación educativa colombiana y los cambios de la sociedad.</p>
+        </article>
+        <article class="card span-6">
+          <div class="kicker">Horizonte</div>
+          <h2 class="title">Visión</h2>
+          <p>Proyección a un alto reconocimiento municipal mediante programas curriculares pertinentes y proyectos que amplían cobertura y calidad, formando educandos en lo científico, ético y en valores humanos para ser una institución generadora de cambio, progreso y calidad.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bandera -->
+    <section id="bandera" class="reveal" style="margin-top:16px">
+      <div class="card">
+        <div class="kicker">Símbolos</div>
+        <h2 class="title">Bandera institucional</h2>
+        <div class="flag" aria-label="Bandera con dos franjas: beige (superior) y marrón (inferior)">
+          <div class="stripe top"></div>
+          <div class="stripe bottom"></div>
+        </div>
+        <ul>
+          <li><strong>Beige:</strong> pureza del alma juvenil; corazón limpio de maldad.</li>
+          <li><strong>Marrón:</strong> esperanza en la juventud que se prepara para el triunfo del mañana y orgullo de la familia y la patria.</li>
+        </ul>
+        <p style="margin-top:.5rem">Sobre la bandera se representa tradicionalmente un <em>libro abierto</em> con la leyenda <strong>“Ciencia y Valores”</strong> y una <em>antorcha</em> que simboliza la luz del entendimiento, rodeados por ramas de <em>laurel</em> en forma de “V” de victoria.</p>
+      </div>
+    </section>
+
+    <!-- Himno -->
+
+    <!-- Escudo -->
+    <section id="escudo" class="reveal" style="margin-top:16px">
+      <div class="card">
+        <div class="kicker">Símbolos</div>
+        <h2 class="title">Escudo institucional</h2>
+        <figure style="display:flex; justify-content:center; margin:8px 0 12px">
+          <img src="./escudoColAquilino.png" alt="Escudo de la Institución" style="width:160px; max-width:60vw; height:auto; object-fit:contain; background:#fff; border-radius:16px; padding:10px; border:1px solid #0001; box-shadow:var(--shadow)">
+        </figure>
+        <p>El escudo representa la identidad y propósito formativo de la Institución. Sus elementos principales son:</p>
+        <ul>
+          <li><strong>Libro abierto</strong> con la leyenda <em>“Ciencia y Valores”</em>: la búsqueda del conocimiento articulada con la formación humana.</li>
+          <li><strong>Antorcha</strong>: la luz del entendimiento y el esfuerzo constante en el estudio.</li>
+          <li><strong>Laureles</strong> en forma de “V”: victoria, honor y mérito académico.</li>
+          <li><strong>Lira / flor</strong>: la dimensión estética y cultural del proceso educativo.</li>
+          <li><strong>Colores institucionales</strong> (beige y marrón): coherentes con la bandera, simbolizan pureza, esperanza y trabajo.</li>
+        </ul>
+       
+      </div>
+    </section>
+
+    <section id="himno" class="reveal" style="margin-top:16px">
+      <div class="card">
+        <div class="kicker">Identidad</div>
+        <h2 class="title">Himno a la Institución</h2>
+        <p style="margin-top:-4px"><small><strong>Letra:</strong> Esp. José Rafael Parada Romero — <strong>Música:</strong> Lic. Humberto Pizzioti</small></p>
+
+        <details open>
+          <summary>Coro</summary>
+          <p>Aquilinos cantemos altivos,<br>nuestro himno con gran devoción;<br>orgullosos somos aquilinos,<br>te llevamos en el corazón.</p>
+        </details>
+        <details>
+          <summary>I</summary>
+          <p>Aquilinos tus hijos fecundos<br>hoy te cantan llenos de emoción;<br>con las letras, el arte y la ciencia<br>los mejores poemas de amor.</p>
+        </details>
+        <details>
+          <summary>II</summary>
+          <p>Una estrella que fulge en el cielo<br>e ilumina el sendero al andar,<br>y en nuestro pecho orgulloso germina<br>la semilla de la libertad.</p>
+        </details>
+        <details>
+          <summary>III</summary>
+          <p>Con los ojos fundimos luceros<br>y en las aulas se enciende la luz;<br>y el estudio nos hace primeros,<br>la constancia en nuestra virtud.</p>
+        </details>
+        <details>
+          <summary>IV</summary>
+          <p>El trabajo es nuestra bandera,<br>es emblema de un mundo mejor;<br>los principios forman a los hombres<br>con justicia, respeto y honor.</p>
+        </details>
+        <details>
+          <summary>V</summary>
+          <p>Un libro abierto es nuestro heraldo<br>que nos llama a la paz y al amor;<br>y en nuestro escudo esculpidos grabados<br>un laurel, una lira, una flor.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Filosofía -->
+    <section id="filosofia" class="reveal" style="margin-top:16px">
+      <div class="card">
+        <div class="kicker">Horizonte</div>
+        <h2 class="title">Filosofía de la institución</h2>
+        <p>Sección preparada para la filosofía institucional. <em>(En el sitio oficial, esta página aparece sin contenido redactado actualmente.)</em> Si cuentas con el texto oficial actualizado, puedes pegarlo aquí y quedará visible de inmediato.</p>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="reveal" style="margin-top:16px">
+      <div class="card">
+        <div class="kicker">Contacto</div>
+        <h2 class="title">Institución Educativa José Aquilino Durán</h2>
+        <p>Av. 17A # 19-41 — Barrio San José, San José de Cúcuta<br>Tel: 5820954 · 5827890</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> I.E. José Aquilino Durán · “Educando con amor para crecer como persona”</small>
+    <br>
+    <small>Ing. Jesús Andrés Ovallos</small>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ScrollSpy sencillo para el nav
+    const sections = [...document.querySelectorAll('main section')];
+    const links = [...document.querySelectorAll('#nav a')];
+    const byId = id => document.querySelector(`#nav a[href="#${id}"]`);
+
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          links.forEach(a=>a.classList.remove('active'));
+          const l = byId(e.target.id); if(l) l.classList.add('active');
+        }
+      })
+    }, {rootMargin:"-40% 0px -50% 0px", threshold:.01});
+    sections.forEach(s=>obs.observe(s));
+
+    // Revelar al entrar en viewport
+    const rev = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); rev.unobserve(e.target); } });
+    }, {threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
+
+    // Smooth scroll para anclas
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if(target){ ev.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+      })
+    });
+  </script>
+</body>
+</html>
